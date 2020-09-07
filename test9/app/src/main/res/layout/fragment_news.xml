@@ -9,11 +9,34 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.2">
     </TextView>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1">
+    </TextView>
+
+    <TextView
+        android:id="@+id/URL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1">
+    </TextView>
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1">
+    </TextView>
+
     <TextView
         android:id="@+id/passage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="0.8">
     </TextView>
+
 
 </LinearLayout>

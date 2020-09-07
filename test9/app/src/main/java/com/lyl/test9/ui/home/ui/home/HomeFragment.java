@@ -1,4 +1,4 @@
-package com.lyl.test9.ui.home;
+package com.lyl.test9.ui.home.ui.home;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,9 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
-import com.lyl.test9.MainActivity;
 import com.lyl.test9.R;
-import com.lyl.test9.ui.home.Activity.EditActivity;
+import com.lyl.test9.ui.home.ui.home.Activity.EditActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,15 +56,9 @@ public class HomeFragment extends Fragment {
 
     private void initDatas() {
         if (!flag){
-            datas.clear();
             SharedPreferences my_tags = getActivity().getSharedPreferences("my_tags",0);
-            String tmp = my_tags.getString("tags","A-B-C-D-E-F-G-H-I");
-            if (!tmp.equals("")){
-                String[] tmpList = tmp.split("-");
-                for (int i = 0; i < tmpList.length; i++){
-                    datas.add(tmpList[i]);
-                }
-            }
+            String tmp = my_tags.getString("tags","A B C D E F G H I");
+            datas = Arrays.asList(tmp.split(" "));
         }
     }
     private void  initViews() {
@@ -79,7 +72,6 @@ public class HomeFragment extends Fragment {
         }
         //设置TabLayout点击事件
         for (int i = 0; i < datas.size(); i++) {
-            fragments.clear();
             HomeSubFragment h = new HomeSubFragment();
             h.getS(s);
             fragments.add(h);

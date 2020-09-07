@@ -1,19 +1,17 @@
-package com.lyl.test9;
+package com.lyl.test9.ui.home;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageView;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.lyl.test9.ui.home.HomeFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.lyl.test9.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,14 +46,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setSharedVals(){
+        System.out.println("inm");
         SharedPreferences my_tags = getSharedPreferences("my_tags", 0);
-        boolean isFirstIn = my_tags.getBoolean("is_first_open", true);
+        boolean isFirstIn = my_tags.getBoolean("is_first_open1", true);
         if (isFirstIn){
+            System.out.println("in");
             SharedPreferences.Editor editor = my_tags.edit();
             editor.putBoolean("is_first_open", false);
-            editor.putString("tags","A-B-C-D-E-F-G-H-I" );
+            editor.putString("tags","A B C D E F G H I" );
             editor.putString("untags","" );
-            editor.commit();
+            editor.apply();
         }
         //System.out.println(my_tags.getBoolean("is_first_open",true));
     }

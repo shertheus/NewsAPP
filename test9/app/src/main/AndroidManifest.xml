@@ -15,11 +15,11 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".ui.home.EditActivity"
+            android:name=".ui.home.Activity.EditActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".ui.home.NewsActivity"
+            android:name=".ui.home.Activity.NewsActivity"
             android:screenOrientation="portrait">
         </activity>
 

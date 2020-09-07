@@ -1,4 +1,4 @@
-package com.lyl.test9.ui.home;
+package com.lyl.test9.ui.home.ui.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -15,11 +15,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.lyl.test9.R;
-import com.lyl.test9.ui.home.Activity.NewsActivity;
+import com.lyl.test9.ui.home.ui.home.Activity.NewsActivity;
 
 import java.util.List;
 
-public class HomeSubFragment extends Fragment implements RefreshListView.OnRefreshListener,RefreshListView.OnLoadMoreListener{
+public class HomeSubFragment extends Fragment implements RefreshListView.OnRefreshListener, RefreshListView.OnLoadMoreListener{
     private RefreshListView mListView;
     private List<String> mDatas;
     private ArrayAdapter<String> mAdapter;
