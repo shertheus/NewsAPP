@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -15,6 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.lyl.test9.MainActivity;
+import com.lyl.test9.ui.home.search.SearchActivity;
 import com.lyl.test9.R;
 import com.lyl.test9.ui.home.Activity.EditActivity;
 
@@ -29,6 +31,7 @@ public class HomeFragment extends Fragment {
     private static List<String> datas = new ArrayList<>();
     private List<Fragment> fragments = new ArrayList<>();
     private PagerAdapter adapter;
+    private TextView search_tv;
 
     public static boolean flag = false;
 
@@ -42,6 +45,14 @@ public class HomeFragment extends Fragment {
         tabLayout = root.findViewById(R.id.tabLayout);
         viewPager = root.findViewById(R.id.viewPager);
         button = root.findViewById(R.id.add_dle_btn);
+        search_tv = root.findViewById(R.id.search_text);
+        search_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,21 +80,27 @@ public class HomeFragment extends Fragment {
         }
     }
     private void  initViews() {
-        //循环注入标签
-        for (String tab : datas) {
-            tabLayout.addTab(tabLayout.newTab().setText(tab));
-        }
         List<String> s = new ArrayList<>();
         for (int i = 0; i < 10; i++){
             s.add("ssssss");
         }
-        //设置TabLayout点击事件
-        for (int i = 0; i < datas.size(); i++) {
-            fragments.clear();
+        if (datas.size() > 4){
+            tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        }
+        if (datas.size() == 0){
+            //Toast.makeText(getContext(),"傻逼，删空你看你m呢？？？？？",Toast.LENGTH_SHORT).show();
+        }
+
+        //循环注入标签
+        fragments.clear();
+        for (String tab : datas) {
+            tabLayout.addTab(tabLayout.newTab().setText(tab));
             HomeSubFragment h = new HomeSubFragment();
             h.getS(s);
+            h.initString(tab);
             fragments.add(h);
         }
+
         //tabLayout.addOnTabSelectedListener((TabLayout.BaseOnTabSelectedListener) this);
         adapter = new PagerAdapter(getChildFragmentManager(), datas, fragments);
         viewPager.setAdapter(adapter);

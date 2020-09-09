@@ -17,11 +17,13 @@ import androidx.fragment.app.Fragment;
 import com.lyl.test9.R;
 import com.lyl.test9.ui.home.Activity.NewsActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeSubFragment extends Fragment implements RefreshListView.OnRefreshListener,RefreshListView.OnLoadMoreListener{
+    private String label;
     private RefreshListView mListView;
-    private List<String> mDatas;
+    private List<String> mDatas = new ArrayList<>();
     private ArrayAdapter<String> mAdapter;
     private final static int REFRESH_COMPLETE = 0;
     private final static int LOAD_COMPLETE = 1;
@@ -43,7 +45,7 @@ public class HomeSubFragment extends Fragment implements RefreshListView.OnRefre
     };
 
     public void getS(List<String> s){
-        mDatas = s;
+        mDatas.addAll(s);
     }
 
     @Nullable
@@ -52,6 +54,7 @@ public class HomeSubFragment extends Fragment implements RefreshListView.OnRefre
         View root = inflater.inflate(R.layout.fragment_subhome, container, false);
         final Context context = this.getActivity();
         mListView = root.findViewById(R.id.ListView);
+
         mAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, mDatas);
         mListView.setAdapter(mAdapter);
         mListView.setOnRefreshListener(this);
@@ -99,5 +102,9 @@ public class HomeSubFragment extends Fragment implements RefreshListView.OnRefre
                 }
             }
         }).start();
+    }
+
+    public void initString(String s){
+        label = s;
     }
 }

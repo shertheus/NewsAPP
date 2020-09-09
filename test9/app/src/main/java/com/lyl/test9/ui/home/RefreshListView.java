@@ -87,7 +87,7 @@ public class RefreshListView extends ListView implements AbsListView.OnScrollLis
         headerView.setPadding(0, -headerViewHeight, 0, 0);
 
         footerViewHeight = footerView.getMeasuredHeight();
-        footerView.setPadding(0, 0, 0, -footerViewHeight-100000);
+        footerView.setPadding(0, 0, 0, -footerViewHeight);
 
         //初始化刷新状态
         refreshstate = REFRESH_DONE;
@@ -270,7 +270,7 @@ public class RefreshListView extends ListView implements AbsListView.OnScrollLis
                 tv_load.setText("上拉加载更多");
                 break;
             case LOADING:
-                tv_load.setText("正在加载...");
+                tv_load.setText("正在加载...\n");
                 footerView.setPadding(0, 0, 0, 0);
                 break;
             default:

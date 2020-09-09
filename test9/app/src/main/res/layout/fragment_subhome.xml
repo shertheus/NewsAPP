@@ -8,6 +8,7 @@
         android:id="@+id/ListView"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:scrollbars="none"/>
+        android:scrollbars="none">
+    </com.lyl.test9.ui.home.RefreshListView>
 
 </RelativeLayout>

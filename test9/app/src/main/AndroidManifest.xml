@@ -12,7 +12,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreen">
         </activity>
         <activity
             android:name=".ui.home.Activity.EditActivity"
@@ -20,9 +21,15 @@
         </activity>
         <activity
             android:name=".ui.home.Activity.NewsActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreen">
         </activity>
-
+        <activity
+            android:name=".ui.home.search.SearchActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreen">
+        </activity>
         <activity android:name=".WelcomeActivity"
             android:label="welcome"
             android:theme="@style/FullScreen"
